@@ -21,7 +21,7 @@ use crate::cubin::NVInfoItem;
 
 #[repr(C, align(8))]
 #[derive(Debug)]
-struct FatbinHeader {
+pub struct FatbinHeader {
     magic: c_uint,
     version: c_ushort,
     header_size: c_ushort,
@@ -31,7 +31,7 @@ struct FatbinHeader {
 // TODO: static assert size is 64 bytes
 #[repr(C)]
 #[derive(Debug)]
-struct FatbinData {
+pub struct FatbinData {
     kind: c_ushort,
     version: c_ushort,
     header_size: c_uint,
