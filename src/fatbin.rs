@@ -22,30 +22,30 @@ use crate::cubin::NVInfoItem;
 #[repr(C, align(8))]
 #[derive(Debug)]
 pub struct FatbinHeader {
-    magic: c_uint,
-    version: c_ushort,
-    header_size: c_ushort,
-    fat_size: c_ulong, // not including this header
+    pub magic: c_uint,
+    pub version: c_ushort,
+    pub header_size: c_ushort,
+    pub fat_size: c_ulong, // not including this header
 }
 
 // TODO: static assert size is 64 bytes
 #[repr(C)]
 #[derive(Debug)]
 pub struct FatbinData {
-    kind: c_ushort,
-    version: c_ushort,
-    header_size: c_uint,
-    padded_payload_size: c_uint,
-    unknown0: c_uint, // check if it's written into separately
-    payload_size: c_uint,
-    unknown1: c_uint,
-    unknown2: c_uint,
-    sm_version: c_uint,
-    bit_width: c_uint,
-    unknown3: c_uint,
-    unknown4: c_ulong,
-    unknown5: c_ulong,
-    uncompressed_payload: c_ulong,
+    pub kind: c_ushort,
+    pub version: c_ushort,
+    pub header_size: c_uint,
+    pub padded_payload_size: c_uint,
+    pub unknown0: c_uint, // check if it's written into separately
+    pub payload_size: c_uint,
+    pub unknown1: c_uint,
+    pub unknown2: c_uint,
+    pub sm_version: c_uint,
+    pub bit_width: c_uint,
+    pub unknown3: c_uint,
+    pub unknown4: c_ulong,
+    pub unknown5: c_ulong,
+    pub uncompressed_payload: c_ulong,
 }
 
 pub fn is_fatbin(fat_cubin: *const ::std::os::raw::c_void) -> bool {
